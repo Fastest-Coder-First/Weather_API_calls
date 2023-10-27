@@ -1,6 +1,6 @@
 # How to use OpenWeatherMap API to get weather data
 
-import requests
+import pip._vendor.requests
 import json
 import sys
 from datetime import datetime 
@@ -23,7 +23,7 @@ complete_url = base_url + "appid=" + api_key + "&q=" + city_name + "&units=metri
 try:
     
     # get method of requests module
-    response = requests.get(complete_url)
+    response = pip._vendor.requests.get(complete_url)
     # json method of response object
     x = response.json()
 
@@ -91,7 +91,7 @@ try:
     else:
         print(" City Not Found ")
 
-except requests.exceptions.RequestException as e:
+except pip._vendor.requests.exceptions.RequestException as e:
     print("Error: {}".format(e))
     print("Failed to connect to the Weather API server")
     sys.exit(1)
